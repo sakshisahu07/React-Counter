@@ -1,176 +1,78 @@
-// // import { BrowserRouter, Routes,Route } from "react-router-dom";
-// // import Layout from "./Layout";
-// // import Home from "./Pages/Home";
-// // import About from "./Pages/About";
-// // import Service from "./Pages/Service";
-// // import Contact from "./Pages/Contact";
-// // import Nopage from "./Pages/Nopage";
+// =======================React Hook=========================================================
 
-
-// // const App=()=>{
-// //   return(
-// //     <>
-// //     <BrowserRouter>
-// //       <Routes>
-// //         <Route path="/" element={<Layout/>}>
-// //           <Route index element={<Home/>}/>
-// //         <Route path="/home" element={<Home/>}/>
-// //         <Route path="/about" element={<About/>}/>
-// //         <Route path="/service" element={<Service/>}/>
-// //         <Route path="/contact" element={<Contact/>}/>
-// //         <Route path="/nopage" element={<Nopage/>}/>
-
-// //         </Route>
-
-// //       </Routes>
-
-// //     </BrowserRouter>
-// //     </>
-// //   )
-// // }
-// // export default App;
-
-// import {BrowserRouter,Routes, Route } from "react-router-dom";
-// import Layout from "./Layout";
-// import Home from "./Pages/Home";
-// import About from "./Pages/About";
-// import Service from "./Pages/Service";
-// import Contact from "./Pages/Contact";
-// import Nopage from "./Pages/Nopage";
-// import Companyservice from "./Pages/Companyservice.jsx";
-// import Productservice from "./Pages/Productservice.jsx";
-// import Sellsservice from "./Pages/Sellsservice.jsx";
-
-// const App=()=>{
-//   return(
-//     <>
-//     <BrowserRouter>
-//     <Routes>
-//       <Route path="/" element={<Layout/>}>
-//       <Route index element={<Home/>}/>
-//       <Route path="/home"element={<Home/>}/>
-//       <Route path="/about"element={<About/>}/>
-//       <Route path="/service"element={<Service/>}>
-//         <Route path="companyservice"element={<Companyservice/>}/>
-//         <Route path="productservice"element={<Productservice/>}/>
-//         <Route path="sellsservice"element={<Sellsservice/>}/>
-//       </Route>
-//       <Route path="/contact"element={<Contact/>}/>
-//       <Route path="*"element={<Nopage/>}/>
-//       </Route>
-//     </Routes>
-//     </BrowserRouter>
-//     </>
-//   )
-// }
-// export default App;
-
-
-
-
-
+import { useState } from "react";
 const App=()=>{
-  const myName=(fnm, snm)=>
-    {
-      alert ("My name : "+ fnm +" "+ snm + "from bhopal")
-    }
-    return(
-        <>
-        <h1>welcome</h1>
-        <button onClick={()=>{myName("Sakshi","Sahu")}}>Click here</button>
-        </>
-    )
-}
-export default App;
-
-const App=()=>{
-
-  const myAdd=(a,b)=>{
-    alert(a+b);
-  }
+  const [name,setName]= useState("Sakshi");
   return(
     <>
-    <h1>Welcome to React events</h1>
-    <button onClick={()=>{myAdd(4,6)}}>Click here</button>
+    <h1>hello Everyone: {name}</h1>
+    <button onClick={()=>{setName("Minakshi")}}>Click here</button>
+
     </>
   )
 }
 export default App;
 
+// ===========================================================================
 
-
+import { useState } from "react";
 const App=()=>{
-  const display=(nm, b)=>{
-    alert (nm+ "Event Type: "+ b.type);
+  const [color,setColor]= useState("Red");
+
+  const myColor=()=>{
+    setColor("Green")
   }
   return(
     <>
-    <h1>Welcom</h1>
-    <button onClick={(e)=>{display("Sakshi", e)}}>Click here</button>
+    <h1>My fav Color: {color}</h1>
+    <button onClick={myColor}>Click here</button>
     </>
   )
 }
 export default App;
 
-
-
+import { useState } from "react";
 const App=()=>{
-  const display=(e)=>{
-    alert("Event Type:" + e.type);
-  }
+  const [color,setColor]=useState("red");
   return(
     <>
-    <h1>Welcome</h1>
-    <button onClick={display}>Click here</button>
+    <h1 style={{color:color}}>My fav color: {color}</h1>
+    <button onClick={()=>{setColor("green")}}>Green color</button>
+    <button onClick={()=>{setColor("red")}}>Red color</button>
+
+    <button onClick={()=>{setColor("blue")}}>Blue color</button>
+    <button onClick={()=>{setColor("pink")}}>Pink color</button>
+    <button onClick={()=>{setColor("yellow")}}>Yellow color</button>
+
     </>
   )
 }
 export default App;
 
-
+import { useState } from "react";
 const App=()=>{
-  const myval=(e)=>{
-    let nm= e.target.name;
-    let val=e.target.value;
-    let typ=e.target.type;
-    alert("name : "+ nm + "value : "+ val + "type : "+ typ +"Event: " + e.type);
-
+  const [cnt, setCnt]=useState(0);
+  const myInc=()=>{
+    setCnt(cnt+1)
+  }
+  const myDec=()=>{
+    setCnt(cnt-1)
+  }
+  const myReset=()=>{
+    setCnt(0)
   }
   return(
     <>
-    <h1>Welcome</h1>
-    <button type="button" name="btn1" value="myBtn" onClick={myval}>Click here</button>
+      <center>
+    <h1>Welcome to Counter App</h1>
+    <h2> My Count: {cnt}</h2>
+    <button onClick={myInc}>Increment</button>
+    <button onClick={myDec}>Decrement</button>
+    <button onClick={myReset}>Reset</button>
+    </center>
     </>
   )
 }
 export default App;
 
-
-const App=()=>{
-
-  const myName=(nm)=>{
-      alert("My name : "+ nm + "from Bhopal");
-  }
-  return(
-      <>
-      <h1>Welcome to React events</h1>
-      <button onClick={()=>{myName("Sakshi sahu")}}>Click here</button>
-      </>
-  )
-}
-export default App;
-
-
-const App=()=>{
-  const display=()=>{
-      alert("this is a alert box")
-  }
-  return(
-      <>
-      <h1>Welcome to React Events</h1>
-      <button onClick={display}> Click here </button>
-      </>
-  )
-}
-export default App;
 
